@@ -5,6 +5,14 @@ CEC_DEVICE_TYPE_AUDIO_SYSTEM = 5
 os.environ["PYTHONCEC_DEVICE_NAME"] = "rpi3"
 os.environ["PYTHONCEC_DEVICE_TYPE"] = str(CEC_DEVICE_TYPE_AUDIO_SYSTEM)
 
+import sys
+from loguru import logger
+logger.add("output.log", rotation="500 MB", level="INFO", colorize=True)  # Add a file handler
+logger.add(sys.stdout, level="INFO", colorize=True)  # Add a stdout handler
+logger.level("COMMAND", no=21, color="<yellow>")
+logger.level("NOTICE", no=19, color="<green>")
+logger.level("TRAFFIC", no=15, color="<cyan>")
+
 import time
 import cec
 import inspect
@@ -51,7 +59,7 @@ LOGLEVELS = {
 
 
 def printCommand(command):
-    print(
+    logger.log("COMMAND",
         f'COMMAND {{'
         f'initiator: {DEVICES.get(command["initiator"], command["initiator"])}, '
         f'destination: {DEVICES.get(command["destination"], command["destination"])}, '
@@ -64,11 +72,9 @@ def printCommand(command):
     )
 
 
-LOGLEVEL = 31
 def printLog(argv):
     level, time, msg = argv
-    if level <= LOGLEVEL:
-        print(
+    logger.log(LOGLEVELS[level],
             f'LOG {{'
             f'level: {LOGLEVELS.get(level, level)}, '
             f'time: {time}, '
@@ -89,29 +95,29 @@ def callback(event, *argv):
         command = argv[0]
         printCommand(command)
         if command['opcode'] == cec.CEC_OPCODE_REQUEST_ARC_START:
-            print("Reporting ARC started")
+            logger.success('Reporting ARC Started')
             cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_REPORT_ARC_STARTED, '', cec.CECDEVICE_AUDIOSYSTEM)
     elif event == cec.EVENT_KEYPRESS:
         code, duration = argv
-        print("keypress", code, duration)
+        logger.info("keypress", code, duration)
         if code == 65 and duration == 0:
             volume_up()
-            print("volume up")
+            logger.info("volume up")
         elif code == 66 and duration == 0:
             volume_down()
-            print("volume down")
+            logger.info("volume down")
         elif code == 67 and duration == 0:
             volume_mute()            
-            print("mute")
+            logger.info("mute")
     elif event == cec.EVENT_LOG:
         printLog(argv)
     else:
-        print("event: ", event, "argv: ", argv)
+        logger.warning("uncategorized event", "event: ", event, "argv: ", argv)
 
 
 cec.add_callback(callback, cec.EVENT_ALL)
 cec.init()
-print("initilized")
+logger.success("initilized")
 
 
 # Sleep forever (CEC stuff will run in the background)
