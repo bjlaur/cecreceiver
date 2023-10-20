@@ -1,6 +1,14 @@
+import os
+
+CEC_DEVICE_TYPE_AUDIO_SYSTEM = 5
+
+os.environ["PYTHONCEC_DEVICE_NAME"] = "rpi3"
+os.environ["PYTHONCEC_DEVICE_TYPE"] = str(CEC_DEVICE_TYPE_AUDIO_SYSTEM)
+
 import time
 import cec
 import inspect
+
 
 def get_int_constants(module):
     constants = {}
@@ -54,7 +62,6 @@ def printCommand(command):
         f'transmit_timeout: {command["transmit_timeout"]}'
         f'}}'
     )
-    sys.stdout.flush()
 
 
 LOGLEVEL = 31
@@ -68,7 +75,6 @@ def printLog(argv):
             f'msg: {msg} '
             f'}}'
         )
-    sys.stdout.flush()
 
 # Replace as necessary with your own HA entity and services for volume
 def volume_up():
@@ -103,7 +109,6 @@ def callback(event, *argv):
         print("event: ", event, "argv: ", argv)
 
 
-#cec.add_callback(callback, cec.EVENT_ALL & ~cec.EVENT_LOG)
 cec.add_callback(callback, cec.EVENT_ALL)
 cec.init()
 print("initilized")
