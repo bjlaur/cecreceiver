@@ -7,8 +7,8 @@ os.environ["PYTHONCEC_DEVICE_TYPE"] = str(CEC_DEVICE_TYPE_AUDIO_SYSTEM)
 
 import sys
 from loguru import logger
-logger.add("output.log", rotation="500 MB", level="DEBUG")  # Add a file handler
-logger.add(sys.stdout, level="INFO", colorize=True)  # Add a stdout handler
+logger.add("output.log", rotation="500 MB", level="DEBUG") 
+logger.add(sys.stdout, level="INFO", colorize=True) 
 logger.level("COMMAND", no=21, color="<yellow>")
 logger.level("NOTICE", no=19, color="<green>")
 logger.level("TRAFFIC", no=15, color="<cyan>")
@@ -83,7 +83,6 @@ def printLog(argv):
             f'}}'
         )
 
-# Replace as necessary with your own HA entity and services for volume
 def volume_up():
     logger.info("volume up")
 def volume_down():
@@ -112,7 +111,6 @@ def callback(event, *argv):
         elif event == cec.EVENT_KEYPRESS:
             code, duration = argv
             logger.info(f'keypress {code} {duration}')
-            #logger.info(join('a','b'))
             if code == 65 and duration == 0:
                 volume_up()
             elif code == 66 and duration == 0:
