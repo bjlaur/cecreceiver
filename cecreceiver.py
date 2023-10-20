@@ -7,6 +7,7 @@ os.environ["PYTHONCEC_DEVICE_TYPE"] = str(CEC_DEVICE_TYPE_AUDIO_SYSTEM)
 
 import sys
 from loguru import logger
+logger.remove()
 logger.add("output.log", rotation="500 MB", level="DEBUG") 
 logger.add(sys.stdout, level="INFO", colorize=True) 
 logger.level("COMMAND", no=21, color="<yellow>")
@@ -16,8 +17,8 @@ logger.success("Logging initilized.")
 
 import time
 import cec
+import actions
 import inspect
-
 
 def get_int_constants(module):
     constants = {}
@@ -83,16 +84,6 @@ def printLog(argv):
             f'}}'
         )
 
-def volume_up():
-    logger.info("volume up")
-def volume_down():
-    logger.info("volume down")
-def volume_mute():
-    logger.info("mute")
-def tv_on():
-    logger.info("TV ON")
-def tv_off():
-    logger.info("TV OFF")
 
 def callback(event, *argv):
     try:
@@ -102,26 +93,26 @@ def callback(event, *argv):
             if command['opcode'] == cec.CEC_OPCODE_REQUEST_ARC_START:
                 logger.success('Reporting ARC Started')
                 cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_REPORT_ARC_STARTED, '', cec.CECDEVICE_AUDIOSYSTEM)
-                tv_on()
+                actions.tv_on()
             if command['opcode'] == cec.CEC_OPCODE_STANDBY and command['destination'] == cec.CECDEVICE_BROADCAST:
                 #A device has requested all go to standby.
                 logger.info("STANDBY Broadcast sent by " + DEVICES.get(command["initiator"], command["initiator"]))
-                tv_off()
+                actions.tv_off()
 
         elif event == cec.EVENT_KEYPRESS:
             code, duration = argv
             logger.info(f'keypress {code} {duration}')
             if code == 65 and duration == 0:
-                volume_up()
+                actions.volume_up()
             elif code == 66 and duration == 0:
-                volume_down()
+                actions.volume_down()
             elif code == 67 and duration == 0:
-                volume_mute()            
+                actions.volume_mute()            
         elif event == cec.EVENT_LOG:
             printLog(argv)
             level, time, msg = argv
             if msg == "TV (0): power status changed from 'standby' to 'in transition from standby to on'":
-                tv_on()
+                actions.tv_on()
         else:
             logger.warning(f'uncategorized event. event: {event}, argv: {argv}')
     except Exception as e:
