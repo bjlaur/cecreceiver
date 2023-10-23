@@ -116,7 +116,8 @@ def callback(event, *argv):
         else:
             logger.warning(f'uncategorized event. event: {event}, argv: {argv}')
     except Exception as e:
-        logger.error(f"An error occurred: {str(e)}" + traceback.format_exc())
+        logger.error(f"An error occurred: {str(e)}")
+        logger.exception(e)
 
 
 cec.add_callback(callback, cec.EVENT_ALL)
