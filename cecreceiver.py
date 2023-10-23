@@ -133,7 +133,3 @@ cec.add_callback(callback, cec.EVENT_ALL)
 cec.init()
 logger.success("initilized")
 
-
-# Sleep forever (CEC stuff will run in the background)
-while True:
-    time.sleep(100)
