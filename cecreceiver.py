@@ -19,6 +19,7 @@ import time
 import cec
 import actions
 import inspect
+import re
 
 def get_int_constants(module):
     constants = {}
@@ -73,16 +74,24 @@ def printCommand(command):
         f'}}'
     )
 
+opcode_re = re.compile(r'opcode=([a-fA-F0-9]+)')
 
 def printLog(argv):
     level, time, msg = argv
-    logger.log(LOGLEVELS[level],
-            f'LOG {{'
-            f'level: {LOGLEVELS.get(level, level)}, '
-            f'time: {time}, '
-            f'msg: {msg} '
-            f'}}'
-        )
+    matches = opcode_re.findall(msg)
+
+    # Check if matches is non-empty before accessing its elements
+    opcode = int(matches[0], 16) if matches else None
+
+    logger.log(LOGLEVELS.get(level, level),
+               f'LOG {{'
+               f'level: {LOGLEVELS.get(level, level)}, '
+               f'time: {time}, '
+               f'msg: {{{msg}}}' +
+               (f', opcode: {OPCODES.get(opcode, opcode)}' if opcode is not None and opcode in OPCODES else '') + 
+               f'}}'
+    )
+
 
 
 def callback(event, *argv):
