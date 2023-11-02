@@ -57,8 +57,27 @@ LOGLEVELS = {
     31: 'ALL'
 }
 
+#could ask python-cec to expose these?
+
+CEC_POWER_STATUS_ON = 0
+CEC_POWER_STATUS_STANDBY = 1
+CEC_POWER_STATUS_IN_TRANSITION_STANDBY_TO_ON = 2
+CEC_POWER_STATUS_IN_TRANSITION_ON_TO_STANDBY = 3
+
+POWER_STATUSES = {
+    CEC_POWER_STATUS_ON: 'CEC_POWER_STATUS_ON',
+    CEC_POWER_STATUS_STANDBY: 'CEC_POWER_STATUS_STANDBY',
+    CEC_POWER_STATUS_IN_TRANSITION_STANDBY_TO_ON: 'CEC_POWER_STATUS_IN_TRANSITION_STANDBY_TO_ON',
+    CEC_POWER_STATUS_IN_TRANSITION_ON_TO_STANDBY: 'CEC_POWER_STATUS_IN_TRANSITION_ON_TO_STANDBY'
+    #,CEC_POWER_STATUS_UNKNOWN: 'CEC_POWER_STATUS_UNKNOWN'
+}
+
+
+
 #https://github.com/simons-public/cecdaemon/blob/master/cecdaemon/const.py
 #https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/xtreamerdev/CEC_Specs.pdf
+#https://searchcode.com/total-file/93523780/
+#https://forums.parallax.com/discussion/download/128730/Hdmi-1.4-1000008562-6364143185282736974850538.pdf
 
 
 def printCommand(command):
@@ -92,21 +111,51 @@ def printLog(argv):
                f'}}'
     )
 
-
+ffff_re = re.compile(r'^.*CEC_DQEVENT.*CEC_EVENT_STATE_CHANGE.*phys_addr=ffff.*$')
+ffff = False
 
 def callback(event, *argv):
-    try:
+    try: #need try otherwise the errors will get swalloed up by python-cec
+        global ffff
         if event == cec.EVENT_COMMAND:
             command = argv[0]
             printCommand(command)
             if command['opcode'] == cec.CEC_OPCODE_REQUEST_ARC_START:
-                logger.success('Reporting ARC Started')
-                cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_REPORT_ARC_STARTED, '', cec.CECDEVICE_AUDIOSYSTEM)
-                actions.tv_on()
+                logger.success('Request ARC Start')
+                if ffff:
+                    logger.info('Request ARC Start while in ffff...')
+                    #always respond with this so that the TV doesn't switch to speakers.
+                    cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_START_ARC, '', cec.CECDEVICE_AUDIOSYSTEM)
+                    #don't send the GIVE_DEVICE_POWER_STATUS thing because the ffff fuction will do that for us.
+                    #although I am not 100% if we can't actually just send it anyways in which case we don't need this ffff variable.
+                    cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
+
+                else:
+                    logger.info('Request ARC start while not in ffff... responding with.....')
+                    #always respond with this so that the TV doesn't switch to speakers.
+                    cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_START_ARC, '', cec.CECDEVICE_AUDIOSYSTEM)
+                    #are we sure if the tv is actually on at this point? lets double check.
+                    cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
+
+
             if command['opcode'] == cec.CEC_OPCODE_STANDBY and command['destination'] == cec.CECDEVICE_BROADCAST:
                 #A device has requested all go to standby.
                 logger.info("STANDBY Broadcast sent by " + DEVICES.get(command["initiator"], command["initiator"]))
                 actions.tv_off()
+
+            if command['opcode'] == cec.CEC_OPCODE_REPORT_POWER_STATUS and command['initiator'] == cec.CECDEVICE_TV:
+                power_status = int.from_bytes(command['parameters'])
+                logger.info(f'TV Report Power Status: {POWER_STATUSES.get(power_status, power_status)}')
+
+                if power_status == CEC_POWER_STATUS_ON or power_status == CEC_POWER_STATUS_IN_TRANSITION_STANDBY_TO_ON:
+                    #if we get this the tv is absolutely on.
+                    logger.info('TV Report Power: TV ON or turning ON')
+                    actions.tv_on()
+                    #just in case we missed it due to an ffff event.
+                    cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_START_ARC, '', cec.CECDEVICE_AUDIOSYSTEM)
+
+                else:
+                    logger.info('TV Report Power: TV OFF or turning OFF')
 
         elif event == cec.EVENT_KEYPRESS:
             code, duration = argv
@@ -121,7 +170,17 @@ def callback(event, *argv):
             printLog(argv)
             level, time, msg = argv
             if msg == "TV (0): power status changed from 'standby' to 'in transition from standby to on'":
+                #does this need to be adjusted? not during fffff or anything?
                 actions.tv_on()
+
+            if ffff_re.match(msg):
+                logger.warning('ffff - detected. sleeping for 5 seconds')
+                ffff = True
+                time.sleep(5)
+                logger.info('ffff - transmit GIVE DEVICE POWER STATUS to TV')
+                #check if tv is on. if it is the CEC_REPORT_POWER_STATUS handler above will handle it.
+                cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
+                ffff = False
         else:
             logger.warning(f'uncategorized event. event: {event}, argv: {argv}')
     except Exception as e:
@@ -131,5 +190,9 @@ def callback(event, *argv):
 
 cec.add_callback(callback, cec.EVENT_ALL)
 cec.init()
+
+#seems like python-cec does this automatically, so we don't need it.
+#cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
+
 logger.success("initilized")
 
