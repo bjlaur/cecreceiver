@@ -15,7 +15,7 @@ logger.level("NOTICE", no=19, color="<green>")
 logger.level("TRAFFIC", no=15, color="<cyan>")
 logger.success("Logging initilized.")
 
-import time
+from time import sleep
 import cec
 import actions
 import inspect
@@ -174,13 +174,16 @@ def callback(event, *argv):
                 actions.tv_on()
 
             if ffff_re.match(msg):
-                logger.warning('ffff - detected. sleeping for 5 seconds')
+                logger.warning('ffff - detected.')
                 ffff = True
-                time.sleep(5)
-                logger.info('ffff - transmit GIVE DEVICE POWER STATUS to TV')
-                #check if tv is on. if it is the CEC_REPORT_POWER_STATUS handler above will handle it.
-                cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
-                ffff = False
+            if msg == "CLinuxCECAdapterCommunication::Process - CEC_DQEVENT - CEC_EVENT_STATE_CHANGE - log_addr_mask=0020 phys_addr=3000":
+                logger.info('3000 - detected.')
+                if ffff:
+                    logger.warning('3000 - detected w/ ffff')
+                    logger.info('sleeping 3 seconds for good measure.')
+                    sleep(3)
+                    cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
+                    ffff = False
         else:
             logger.warning(f'uncategorized event. event: {event}, argv: {argv}')
     except Exception as e:
@@ -190,9 +193,6 @@ def callback(event, *argv):
 
 cec.add_callback(callback, cec.EVENT_ALL)
 cec.init()
-
 #seems like python-cec does this automatically, so we don't need it.
 #cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
-
 logger.success("initilized")
-
