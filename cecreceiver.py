@@ -180,8 +180,6 @@ def callback(event, *argv):
                 logger.info('3000 - detected.')
                 if ffff:
                     logger.warning('3000 - detected w/ ffff')
-                    logger.info('sleeping 3 seconds for good measure.')
-                    sleep(3)
                     cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
                     ffff = False
         else:
