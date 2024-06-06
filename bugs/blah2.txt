@@ -1,0 +1,252 @@
+
+2023-11-07 22:13:03.231 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170189, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=9 addr=05 opcode=a0}, opcode: VENDOR_COMMAND_WITH_ID}
+2023-11-07 22:13:03.233 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322170190, msg: {>> 05:a0:08:00:46:00:0c:00:ff}}
+2023-11-07 22:13:03.234 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: VENDOR_COMMAND_WITH_ID, parameters: b'\x08\x00F\x00\x0c\x00\xff', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:03.236 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170190, msg: {sending abort with opcode a0 and reason 'invalid operand' to TV}}
+2023-11-07 22:13:03.237 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170190, msg: {<< transmitting abort message}}
+2023-11-07 22:13:03.238 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322170190, msg: {<< 50:00:a0:03}}
+2023-11-07 22:13:03.239 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170193, msg: {>> TV (0) -> Audio (5): vendor command with id (A0)}}
+2023-11-07 22:13:03.342 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170300, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:03.477 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170436, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=5 addr=0f opcode=84}, opcode: REPORT_PHYSICAL_ADDRESS}
+2023-11-07 22:13:03.479 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322170436, msg: {>> 0f:84:00:00:00}}
+2023-11-07 22:13:03.480 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: BROADCAST, ack: False, opcode: REPORT_PHYSICAL_ADDRESS, parameters: b'\x00\x00\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:03.482 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170436, msg: {<< Audio (5) -> broadcast (F): physical address 3000}}
+2023-11-07 22:13:03.483 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322170436, msg: {<< 5f:84:30:00:05}}
+2023-11-07 22:13:03.484 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170439, msg: {>> TV (0) -> Broadcast (F): report physical address (84)}}
+2023-11-07 22:13:03.612 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170570, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=5 addr=5f opcode=84}, opcode: REPORT_PHYSICAL_ADDRESS}
+2023-11-07 22:13:03.746 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170705, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=5 addr=0f opcode=87}, opcode: DEVICE_VENDOR_ID}
+2023-11-07 22:13:03.748 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322170705, msg: {>> 0f:87:08:00:46}}
+2023-11-07 22:13:03.750 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: BROADCAST, ack: False, opcode: DEVICE_VENDOR_ID, parameters: b'\x08\x00F', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:03.751 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170705, msg: {<< Audio (5) -> Broadcast (F): vendor id Pulse Eight (1582)}}
+2023-11-07 22:13:03.753 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322170705, msg: {<< 5f:87:00:15:82}}
+2023-11-07 22:13:03.754 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170708, msg: {>> TV (0) -> Broadcast (F): device vendor id (87)}}
+2023-11-07 22:13:03.881 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170840, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=5 addr=5f opcode=87}, opcode: DEVICE_VENDOR_ID}
+2023-11-07 22:13:03.943 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170902, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=7d}, opcode: GIVE_SYSTEM_AUDIO_MODE_STATUS}
+2023-11-07 22:13:03.945 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322170902, msg: {>> 05:7d}}
+2023-11-07 22:13:03.947 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_SYSTEM_AUDIO_MODE_STATUS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:03.949 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170902, msg: {<< 5 -> 0: system audio mode 'on'}}
+2023-11-07 22:13:03.951 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322170902, msg: {<< 50:7e:01}}
+2023-11-07 22:13:03.953 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170906, msg: {>> TV (0) -> Audio (5): give audio mode status (7D)}}
+2023-11-07 22:13:04.030 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322170989, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=3 addr=50 opcode=7e}, opcode: SYSTEM_AUDIO_MODE_STATUS}
+2023-11-07 22:13:04.094 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171052, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c3}, opcode: REQUEST_ARC_START}
+2023-11-07 22:13:04.095 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322171052, msg: {>> 05:c3}}
+2023-11-07 22:13:04.097 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REQUEST_ARC_START, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:04.098 | SUCCESS  | __main__:callback:124 - Request ARC Start
+2023-11-07 22:13:04.100 | INFO     | __main__:callback:134 - Request ARC start while not in ffff... responding with.....
+2023-11-07 22:13:04.806 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171052, msg: {sending abort with opcode c3 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:04.807 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171052, msg: {<< transmitting abort message}}
+2023-11-07 22:13:04.809 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322171052, msg: {<< 50:00:c3:00}}
+2023-11-07 22:13:04.810 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171056, msg: {>> TV (0) -> Audio (5): request ARC start (C3)}}
+2023-11-07 22:13:04.811 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171163, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:04.812 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322171163, msg: {<< 50:c0}}
+2023-11-07 22:13:04.813 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171301, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=2 addr=50 opcode=c0}, opcode: START_ARC}
+2023-11-07 22:13:04.814 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322171301, msg: {<< 50:8f}}
+2023-11-07 22:13:04.815 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171701, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=16 addr=0f opcode=a0}, opcode: VENDOR_COMMAND_WITH_ID}
+2023-11-07 22:13:04.817 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322171702, msg: {>> 0f:a0:08:00:46:00:13:00:10:00:00:01:00:00:00:00}}
+2023-11-07 22:13:04.818 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: BROADCAST, ack: False, opcode: VENDOR_COMMAND_WITH_ID, parameters: b'\x08\x00F\x00\x13\x00\x10\x00\x00\x01\x00\x00\x00\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:04.820 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171764, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=2 addr=50 opcode=8f}, opcode: GIVE_DEVICE_POWER_STATUS}
+2023-11-07 22:13:04.821 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171777, msg: {>> TV (0) -> Broadcast (F): vendor command with id (A0)}}
+2023-11-07 22:13:05.013 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171972, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=8 addr=05 opcode=a0}, opcode: VENDOR_COMMAND_WITH_ID}
+2023-11-07 22:13:05.015 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322171972, msg: {>> 05:a0:08:00:46:00:30:00}}
+2023-11-07 22:13:05.017 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: VENDOR_COMMAND_WITH_ID, parameters: b'\x08\x00F\x000\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.018 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171972, msg: {sending abort with opcode a0 and reason 'invalid operand' to TV}}
+2023-11-07 22:13:05.020 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171972, msg: {<< transmitting abort message}}
+2023-11-07 22:13:05.021 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322171972, msg: {<< 50:00:a0:03}}
+2023-11-07 22:13:05.022 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322171976, msg: {>> TV (0) -> Audio (5): vendor command with id (A0)}}
+2023-11-07 22:13:05.124 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172083, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:05.236 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172194, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=4 addr=05 opcode=70}, opcode: SYSTEM_AUDIO_MODE_REQUEST}
+2023-11-07 22:13:05.238 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172194, msg: {>> 05:70:20:00}}
+2023-11-07 22:13:05.239 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: SYSTEM_AUDIO_MODE_REQUEST, parameters: b' \x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.240 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172195, msg: {Playback 1 (4): power status changed from 'standby' to 'on'}}
+2023-11-07 22:13:05.242 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172195, msg: {Playback 1 (4) was already marked as active source}}
+2023-11-07 22:13:05.243 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172195, msg: {<< 5 -> 0: set system audio mode '7f'}}
+2023-11-07 22:13:05.244 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172195, msg: {<< 50:72:01}}
+2023-11-07 22:13:05.245 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172198, msg: {>> TV (0) -> Audio (5): system audio mode request (70)}}
+2023-11-07 22:13:05.322 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172281, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=3 addr=50 opcode=72}, opcode: SET_SYSTEM_AUDIO_MODE}
+2023-11-07 22:13:05.515 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172474, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=4 addr=05 opcode=a4}}
+2023-11-07 22:13:05.517 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172474, msg: {>> 05:a4:0a:0f}}
+2023-11-07 22:13:05.518 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: 164, parameters: b'\n\x0f', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.520 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172474, msg: {sending abort with opcode a4 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:05.521 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172474, msg: {<< transmitting abort message}}
+2023-11-07 22:13:05.522 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172474, msg: {<< 50:00:a4:00}}
+2023-11-07 22:13:05.523 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172477, msg: {>> TV (0) -> Audio (5): UNKNOWN (A4)}}
+2023-11-07 22:13:05.626 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172584, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:05.689 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172648, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c1}, opcode: REPORT_ARC_STARTED}
+2023-11-07 22:13:05.691 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172648, msg: {>> 05:c1}}
+2023-11-07 22:13:05.692 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_STARTED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.694 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172648, msg: {sending abort with opcode c1 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:05.695 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172648, msg: {<< transmitting abort message}}
+2023-11-07 22:13:05.696 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172648, msg: {<< 50:00:c1:00}}
+2023-11-07 22:13:05.697 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172651, msg: {>> TV (0) -> Audio (5): report ARC started (C1)}}
+2023-11-07 22:13:05.800 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172759, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:05.887 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172846, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=3 addr=05 opcode=90}, opcode: REPORT_POWER_STATUS}
+2023-11-07 22:13:05.889 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172846, msg: {>> 05:90:00}}
+2023-11-07 22:13:05.890 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_POWER_STATUS, parameters: b'\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.892 | INFO     | __main__:callback:148 - TV Report Power Status: CEC_POWER_STATUS_ON
+2023-11-07 22:13:05.894 | INFO     | __main__:callback:152 - TV Report Power: TV ON or turning ON
+2023-11-07 22:13:05.895 | INFO     | actions:tv_on:11 - TV ON
+2023-11-07 22:13:05.897 | DEBUG    | kasaactions:turnon_async:46 - turnon_async: the amp
+2023-11-07 22:13:05.953 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172849, msg: {>> TV (0) -> Audio (5): report power status (90)}}
+2023-11-07 22:13:05.956 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172856, msg: {<< 50:c0}}
+2023-11-07 22:13:05.958 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172912, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=2 addr=50 opcode=c0}, opcode: START_ARC}
+2023-11-07 22:13:06.013 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172972, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=71}, opcode: GIVE_AUDIO_STATUS}
+2023-11-07 22:13:06.016 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172972, msg: {>> 05:71}}
+2023-11-07 22:13:06.018 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_AUDIO_STATUS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:06.022 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172972, msg: {<< 5 -> 0: audio status '7f'}}
+2023-11-07 22:13:06.025 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322172972, msg: {<< 50:7a:7f}}
+2023-11-07 22:13:06.027 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322172977, msg: {>> TV (0) -> Audio (5): give audio status (71)}}
+2023-11-07 22:13:06.100 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173059, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=3 addr=50 opcode=7a}, opcode: REPORT_AUDIO_STATUS}
+2023-11-07 22:13:06.262 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173220, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c2}, opcode: REPORT_ARC_ENDED}
+2023-11-07 22:13:06.264 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322173221, msg: {>> 05:c2}}
+2023-11-07 22:13:06.266 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_ENDED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:06.270 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173221, msg: {sending abort with opcode c2 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:06.273 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173221, msg: {<< transmitting abort message}}
+2023-11-07 22:13:06.275 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322173221, msg: {<< 50:00:c2:00}}
+2023-11-07 22:13:06.277 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173225, msg: {>> TV (0) -> Audio (5): report ARC ended (C2)}}
+2023-11-07 22:13:06.373 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173331, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:06.484 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173443, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=4 addr=05 opcode=a4}}
+2023-11-07 22:13:06.486 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322173443, msg: {>> 05:a4:0a:0f}}
+2023-11-07 22:13:06.489 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: 164, parameters: b'\n\x0f', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:06.493 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173443, msg: {sending abort with opcode a4 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:06.495 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173443, msg: {<< transmitting abort message}}
+2023-11-07 22:13:06.497 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322173443, msg: {<< 50:00:a4:00}}
+2023-11-07 22:13:06.499 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173448, msg: {>> TV (0) -> Audio (5): UNKNOWN (A4)}}
+2023-11-07 22:13:06.595 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173554, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:06.658 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173617, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c1}, opcode: REPORT_ARC_STARTED}
+2023-11-07 22:13:06.661 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322173617, msg: {>> 05:c1}}
+2023-11-07 22:13:06.664 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_STARTED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:06.668 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173617, msg: {sending abort with opcode c1 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:06.670 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173617, msg: {<< transmitting abort message}}
+2023-11-07 22:13:06.673 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322173617, msg: {<< 50:00:c1:00}}
+2023-11-07 22:13:06.675 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173623, msg: {>> TV (0) -> Audio (5): report ARC started (C1)}}
+2023-11-07 22:13:06.769 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173728, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:06.922 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173881, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c2}, opcode: REPORT_ARC_ENDED}
+2023-11-07 22:13:06.924 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322173881, msg: {>> 05:c2}}
+2023-11-07 22:13:06.927 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_ENDED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:06.931 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173881, msg: {sending abort with opcode c2 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:06.933 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173881, msg: {<< transmitting abort message}}
+2023-11-07 22:13:06.935 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322173881, msg: {<< 50:00:c2:00}}
+2023-11-07 22:13:06.937 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173886, msg: {>> TV (0) -> Audio (5): report ARC ended (C2)}}
+2023-11-07 22:13:07.033 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322173991, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:07.902 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322174861, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=83}, opcode: GIVE_PHYSICAL_ADDRESS}
+2023-11-07 22:13:07.904 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322174861, msg: {>> 05:83}}
+2023-11-07 22:13:07.905 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_PHYSICAL_ADDRESS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:07.907 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322174861, msg: {<< Audio (5) -> broadcast (F): physical address 3000}}
+2023-11-07 22:13:07.908 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322174861, msg: {<< 5f:84:30:00:05}}
+2023-11-07 22:13:07.910 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322174864, msg: {>> TV (0) -> Audio (5): give physical address (83)}}
+2023-11-07 22:13:08.037 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322174995, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=5 addr=5f opcode=84}, opcode: REPORT_PHYSICAL_ADDRESS}
+2023-11-07 22:13:08.194 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175152, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=45 opcode=46}, opcode: GIVE_OSD_NAME}
+2023-11-07 22:13:08.196 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322175153, msg: {>> 45:46}}
+2023-11-07 22:13:08.197 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: PLAYBACKDEVICE1, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_OSD_NAME, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:08.199 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175153, msg: {<< Audio (5) -> Playback 1 (4): OSD name 'rpi3'}}
+2023-11-07 22:13:08.200 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322175153, msg: {<< 54:47:72:70:69:33}}
+2023-11-07 22:13:08.202 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175156, msg: {>> Playback 1 (4) -> Audio (5): give osd name (46)}}
+2023-11-07 22:13:08.352 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175311, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=6 addr=54 opcode=47}, opcode: SET_OSD_NAME}
+2023-11-07 22:13:08.515 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175474, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=5 addr=4f opcode=84}, opcode: REPORT_PHYSICAL_ADDRESS}
+2023-11-07 22:13:08.517 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322175474, msg: {>> 4f:84:20:00:04}}
+2023-11-07 22:13:08.518 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: PLAYBACKDEVICE1, destination: BROADCAST, ack: False, opcode: REPORT_PHYSICAL_ADDRESS, parameters: b' \x00\x04', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:08.520 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175477, msg: {>> Playback 1 (4) -> Broadcast (F): report physical address (84)}}
+2023-11-07 22:13:08.582 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175541, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=46}, opcode: GIVE_OSD_NAME}
+2023-11-07 22:13:08.584 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322175541, msg: {>> 05:46}}
+2023-11-07 22:13:08.585 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_OSD_NAME, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:08.587 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175541, msg: {<< Audio (5) -> TV (0): OSD name 'rpi3'}}
+2023-11-07 22:13:08.588 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322175541, msg: {<< 50:47:72:70:69:33}}
+2023-11-07 22:13:08.589 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175544, msg: {>> TV (0) -> Audio (5): give osd name (46)}}
+2023-11-07 22:13:08.741 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322175699, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=6 addr=50 opcode=47}, opcode: SET_OSD_NAME}
+2023-11-07 22:13:09.317 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176276, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=8c}, opcode: GIVE_DEVICE_VENDOR_ID}
+2023-11-07 22:13:09.319 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322176276, msg: {>> 05:8c}}
+2023-11-07 22:13:09.320 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_DEVICE_VENDOR_ID, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:09.322 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176276, msg: {<< Audio (5) -> TV (0): vendor id Pulse Eight (1582)}}
+2023-11-07 22:13:09.324 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322176276, msg: {<< 5f:87:00:15:82}}
+2023-11-07 22:13:09.325 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176279, msg: {>> TV (0) -> Audio (5): give device vendor id (8C)}}
+2023-11-07 22:13:09.452 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176410, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=5 addr=5f opcode=87}, opcode: DEVICE_VENDOR_ID}
+2023-11-07 22:13:09.675 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176634, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=5 addr=4f opcode=87}, opcode: DEVICE_VENDOR_ID}
+2023-11-07 22:13:09.677 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322176634, msg: {>> 4f:87:00:1a:11}}
+2023-11-07 22:13:09.678 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: PLAYBACKDEVICE1, destination: BROADCAST, ack: False, opcode: DEVICE_VENDOR_ID, parameters: b'\x00\x1a\x11', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:09.680 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176637, msg: {>> Playback 1 (4) -> Broadcast (F): device vendor id (87)}}
+2023-11-07 22:13:09.742 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176701, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=8f}, opcode: GIVE_DEVICE_POWER_STATUS}
+2023-11-07 22:13:09.744 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322176701, msg: {>> 05:8f}}
+2023-11-07 22:13:09.745 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_DEVICE_POWER_STATUS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:09.747 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176701, msg: {<< Audio (5) -> TV (0): on}}
+2023-11-07 22:13:09.748 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322176701, msg: {<< 50:90:00}}
+2023-11-07 22:13:09.750 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176704, msg: {>> TV (0) -> Audio (5): give device power status (8F)}}
+2023-11-07 22:13:09.829 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322176787, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=3 addr=50 opcode=90}, opcode: REPORT_POWER_STATUS}
+2023-11-07 22:13:10.147 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177106, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=8f}, opcode: GIVE_DEVICE_POWER_STATUS}
+2023-11-07 22:13:10.149 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177106, msg: {>> 05:8f}}
+2023-11-07 22:13:10.150 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_DEVICE_POWER_STATUS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:10.152 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177106, msg: {<< Audio (5) -> TV (0): on}}
+2023-11-07 22:13:10.154 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177106, msg: {<< 50:90:00}}
+2023-11-07 22:13:10.155 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177109, msg: {>> TV (0) -> Audio (5): give device power status (8F)}}
+2023-11-07 22:13:10.234 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177192, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=3 addr=50 opcode=90}, opcode: REPORT_POWER_STATUS}
+2023-11-07 22:13:10.297 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177256, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c3}, opcode: REQUEST_ARC_START}
+2023-11-07 22:13:10.299 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177256, msg: {>> 05:c3}}
+2023-11-07 22:13:10.300 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REQUEST_ARC_START, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:10.302 | SUCCESS  | __main__:callback:124 - Request ARC Start
+2023-11-07 22:13:10.304 | INFO     | __main__:callback:134 - Request ARC start while not in ffff... responding with.....
+2023-11-07 22:13:10.542 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177256, msg: {sending abort with opcode c3 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:10.543 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177256, msg: {<< transmitting abort message}}
+2023-11-07 22:13:10.545 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177256, msg: {<< 50:00:c3:00}}
+2023-11-07 22:13:10.546 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177259, msg: {>> TV (0) -> Audio (5): request ARC start (C3)}}
+2023-11-07 22:13:10.547 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177366, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:10.548 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177367, msg: {<< 50:c0}}
+2023-11-07 22:13:10.549 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177433, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=2 addr=50 opcode=c0}, opcode: START_ARC}
+2023-11-07 22:13:10.550 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177433, msg: {<< 50:8f}}
+2023-11-07 22:13:10.551 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177500, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=2 addr=50 opcode=8f}, opcode: GIVE_DEVICE_POWER_STATUS}
+2023-11-07 22:13:10.653 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177612, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=4 addr=05 opcode=a4}}
+2023-11-07 22:13:10.655 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177612, msg: {>> 05:a4:0a:0f}}
+2023-11-07 22:13:10.656 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: 164, parameters: b'\n\x0f', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:10.658 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177612, msg: {sending abort with opcode a4 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:10.660 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177612, msg: {<< transmitting abort message}}
+2023-11-07 22:13:10.661 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177612, msg: {<< 50:00:a4:00}}
+2023-11-07 22:13:10.662 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177615, msg: {>> TV (0) -> Audio (5): UNKNOWN (A4)}}
+2023-11-07 22:13:10.764 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177722, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:10.827 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177786, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c1}, opcode: REPORT_ARC_STARTED}
+2023-11-07 22:13:10.829 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177786, msg: {>> 05:c1}}
+2023-11-07 22:13:10.830 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_STARTED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:10.832 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177786, msg: {sending abort with opcode c1 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:10.833 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177786, msg: {<< transmitting abort message}}
+2023-11-07 22:13:10.834 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177786, msg: {<< 50:00:c1:00}}
+2023-11-07 22:13:10.835 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177789, msg: {>> TV (0) -> Audio (5): report ARC started (C1)}}
+2023-11-07 22:13:10.938 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177897, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:11.025 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177984, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=3 addr=05 opcode=90}, opcode: REPORT_POWER_STATUS}
+2023-11-07 22:13:11.027 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177984, msg: {>> 05:90:00}}
+2023-11-07 22:13:11.028 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_POWER_STATUS, parameters: b'\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.030 | INFO     | __main__:callback:148 - TV Report Power Status: CEC_POWER_STATUS_ON
+2023-11-07 22:13:11.032 | INFO     | __main__:callback:152 - TV Report Power: TV ON or turning ON
+2023-11-07 22:13:11.034 | INFO     | actions:tv_on:11 - TV ON
+2023-11-07 22:13:11.037 | DEBUG    | kasaactions:turnon_async:46 - turnon_async: the amp
+2023-11-07 22:13:11.089 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322177987, msg: {>> TV (0) -> Audio (5): report power status (90)}}
+2023-11-07 22:13:11.091 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322177995, msg: {<< 50:c0}}
+2023-11-07 22:13:11.093 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178048, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=2 addr=50 opcode=c0}, opcode: START_ARC}
+2023-11-07 22:13:11.153 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178111, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c2}, opcode: REPORT_ARC_ENDED}
+2023-11-07 22:13:11.154 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322178111, msg: {>> 05:c2}}
+2023-11-07 22:13:11.156 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_ENDED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.158 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178111, msg: {sending abort with opcode c2 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:11.159 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178112, msg: {<< transmitting abort message}}
+2023-11-07 22:13:11.160 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322178112, msg: {<< 50:00:c2:00}}
+2023-11-07 22:13:11.162 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178115, msg: {>> TV (0) -> Audio (5): report ARC ended (C2)}}
+2023-11-07 22:13:11.263 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178222, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:11.375 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178334, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=4 addr=05 opcode=a4}}
+2023-11-07 22:13:11.377 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322178334, msg: {>> 05:a4:0a:0f}}
+2023-11-07 22:13:11.378 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: 164, parameters: b'\n\x0f', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.380 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178334, msg: {sending abort with opcode a4 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:11.382 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178334, msg: {<< transmitting abort message}}
+2023-11-07 22:13:11.383 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322178334, msg: {<< 50:00:a4:00}}
+2023-11-07 22:13:11.384 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178337, msg: {>> TV (0) -> Audio (5): UNKNOWN (A4)}}
+2023-11-07 22:13:11.486 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178444, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:11.549 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178508, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c1}, opcode: REPORT_ARC_STARTED}
+2023-11-07 22:13:11.551 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322178508, msg: {>> 05:c1}}
+2023-11-07 22:13:11.552 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_STARTED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.554 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178508, msg: {sending abort with opcode c1 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:11.556 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178508, msg: {<< transmitting abort message}}
+2023-11-07 22:13:11.557 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322178508, msg: {<< 50:00:c1:00}}
+2023-11-07 22:13:11.558 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178511, msg: {>> TV (0) -> Audio (5): report ARC started (C1)}}
+2023-11-07 22:13:11.660 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178618, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}
+2023-11-07 22:13:11.737 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178696, msg: {CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=c2}, opcode: REPORT_ARC_ENDED}
+2023-11-07 22:13:11.739 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322178696, msg: {>> 05:c2}}
+2023-11-07 22:13:11.740 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_ENDED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.742 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178696, msg: {sending abort with opcode c2 and reason 'unrecognised opcode' to TV}}
+2023-11-07 22:13:11.744 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178696, msg: {<< transmitting abort message}}
+2023-11-07 22:13:11.745 | TRAFFIC  | __main__:printLog:105 - LOG {level: TRAFFIC, time: 322178696, msg: {<< 50:00:c2:00}}
+2023-11-07 22:13:11.746 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178699, msg: {>> TV (0) -> Audio (5): report ARC ended (C2)}}
+2023-11-07 22:13:11.848 | DEBUG    | __main__:printLog:105 - LOG {level: DEBUG, time: 322178806, msg: {CLinuxCECAdapterCommunication::Write - ioctl CEC_TRANSMIT - tx_status=01 len=4 addr=50 opcode=00}, opcode: FEATURE_ABORT}

@@ -10,10 +10,10 @@ def volume_mute():
 def tv_on():
     logger.info("TV ON")
     kasaactions.turnon('the amp')
-
 def tv_off():
     logger.info("TV OFF")
     kasaactions.turnoff('the amp')
+
 
 
 if __name__ == "__main__":

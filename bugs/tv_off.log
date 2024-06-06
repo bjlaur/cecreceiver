@@ -1,0 +1,25 @@
+
+2023-10-20 14:37:28.768 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 75855, msg: CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=4f opcode=36 }
+2023-10-20 14:37:28.771 | TRAFFIC  | __main__:printLog:78 - LOG {level: TRAFFIC, time: 75855, msg: >> 4f:36 }
+2023-10-20 14:37:28.773 | COMMAND  | __main__:printCommand:63 - COMMAND {initiator: PLAYBACKDEVICE1, destination: UNREGISTERED, ack: False, opcode: STANDBY, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-10-20 14:37:28.776 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 75855, msg: Playback 1 (4): power status changed from 'on' to 'standby' }
+2023-10-20 14:37:28.778 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 75861, msg: >> Playback 1 (4) -> Broadcast (F): standby (36) }
+2023-10-20 14:37:29.391 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76478, msg: CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=3 addr=05 opcode=44 }
+2023-10-20 14:37:29.394 | TRAFFIC  | __main__:printLog:78 - LOG {level: TRAFFIC, time: 76478, msg: >> 05:44:43 }
+2023-10-20 14:37:29.396 | COMMAND  | __main__:printCommand:63 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: USER_CONTROL_PRESSED, parameters: b'C', opcode_set: True, transmit_timeout: 1000}
+2023-10-20 14:37:29.399 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76478, msg: SetCurrentButton mute (43) D:0ms cur:b3ffdb6c }
+2023-10-20 14:37:29.401 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76478, msg: key pressed: mute (43) current(ff) duration(0) }
+2023-10-20 14:37:29.403 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76478, msg: Changed key mute (43) D:0ms cur:ff }
+2023-10-20 14:37:29.407 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76478, msg: key pressed: mute (43, 0) }
+2023-10-20 14:37:29.411 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76478, msg: CheckKeypressTimeout T:40213.690 }
+2023-10-20 14:37:29.414 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76478, msg: Key mute: idle (duration:0) (43) timeout:8986920ms (rel:500,rep:0,prs:500,rel:0) }
+2023-10-20 14:37:29.418 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76483, msg: >> TV (0) -> Audio (5): user control pressed (44) }
+2023-10-20 14:37:29.467 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76554, msg: CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=2 addr=05 opcode=45 }
+2023-10-20 14:37:29.470 | TRAFFIC  | __main__:printLog:78 - LOG {level: TRAFFIC, time: 76554, msg: >> 05:45 }
+2023-10-20 14:37:29.472 | COMMAND  | __main__:printCommand:63 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: USER_CONTROL_RELEASE, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-10-20 14:37:29.475 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76554, msg: key released: mute (43) D:76ms }
+2023-10-20 14:37:29.477 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76559, msg: >> TV (0) -> Audio (5): user control release (45) }
+2023-10-20 14:37:29.811 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76898, msg: CLinuxCECAdapterCommunication::Process - ioctl CEC_RECEIVE - rx_status=01 len=9 addr=0f opcode=a0 }
+2023-10-20 14:37:29.814 | TRAFFIC  | __main__:printLog:78 - LOG {level: TRAFFIC, time: 76898, msg: >> 0f:a0:08:00:46:00:09:00:01 }
+2023-10-20 14:37:29.816 | COMMAND  | __main__:printCommand:63 - COMMAND {initiator: TV, destination: UNREGISTERED, ack: False, opcode: VENDOR_COMMAND_WITH_ID, parameters: b'\x08\x00F\x00\t\x00\x01', opcode_set: True, transmit_timeout: 1000}
+2023-10-20 14:37:29.819 | DEBUG    | __main__:printLog:78 - LOG {level: DEBUG, time: 76903, msg: >> TV (0) -> Broadcast (F): vendor command with id (A0) }

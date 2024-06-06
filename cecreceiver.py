@@ -125,7 +125,7 @@ def callback(event, *argv):
                 if ffff:
                     logger.info('Request ARC Start while in ffff...')
                     #always respond with this so that the TV doesn't switch to speakers.
-                    cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_START_ARC, '', cec.CECDEVICE_AUDIOSYSTEM)
+#cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_START_ARC, '', cec.CECDEVICE_AUDIOSYSTEM)
                     #don't send the GIVE_DEVICE_POWER_STATUS thing because the ffff fuction will do that for us.
                     #although I am not 100% if we can't actually just send it anyways in which case we don't need this ffff variable.
                     cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
@@ -133,7 +133,7 @@ def callback(event, *argv):
                 else:
                     logger.info('Request ARC start while not in ffff... responding with.....')
                     #always respond with this so that the TV doesn't switch to speakers.
-                    cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_START_ARC, '', cec.CECDEVICE_AUDIOSYSTEM)
+#cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_START_ARC, '', cec.CECDEVICE_AUDIOSYSTEM)
                     #are we sure if the tv is actually on at this point? lets double check.
                     cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_GIVE_DEVICE_POWER_STATUS, '', cec.CECDEVICE_AUDIOSYSTEM)
 
@@ -151,7 +151,7 @@ def callback(event, *argv):
                     #if we get this the tv is absolutely on.
                     logger.info('TV Report Power: TV ON or turning ON')
                     actions.tv_on()
-                    #just in case we missed it due to an ffff event.
+##just in case we missed it due to an ffff event.
                     cec.transmit(cec.CECDEVICE_TV, cec.CEC_OPCODE_START_ARC, '', cec.CECDEVICE_AUDIOSYSTEM)
 
                 else:

@@ -1,0 +1,43 @@
+2023-11-07 22:13:03.234 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: VENDOR_COMMAND_WITH_ID, parameters: b'\x08\x00F\x00\x0c\x00\xff', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:03.480 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: BROADCAST, ack: False, opcode: REPORT_PHYSICAL_ADDRESS, parameters: b'\x00\x00\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:03.750 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: BROADCAST, ack: False, opcode: DEVICE_VENDOR_ID, parameters: b'\x08\x00F', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:03.947 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_SYSTEM_AUDIO_MODE_STATUS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:04.097 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REQUEST_ARC_START, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:04.098 | SUCCESS  | __main__:callback:124 - Request ARC Start
+2023-11-07 22:13:04.100 | INFO     | __main__:callback:134 - Request ARC start while not in ffff... responding with.....
+2023-11-07 22:13:04.818 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: BROADCAST, ack: False, opcode: VENDOR_COMMAND_WITH_ID, parameters: b'\x08\x00F\x00\x13\x00\x10\x00\x00\x01\x00\x00\x00\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.017 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: VENDOR_COMMAND_WITH_ID, parameters: b'\x08\x00F\x000\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.239 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: SYSTEM_AUDIO_MODE_REQUEST, parameters: b' \x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.518 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: 164, parameters: b'\n\x0f', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.692 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_STARTED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.890 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_POWER_STATUS, parameters: b'\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:05.892 | INFO     | __main__:callback:148 - TV Report Power Status: CEC_POWER_STATUS_ON
+2023-11-07 22:13:05.894 | INFO     | __main__:callback:152 - TV Report Power: TV ON or turning ON
+2023-11-07 22:13:05.895 | INFO     | actions:tv_on:11 - TV ON
+2023-11-07 22:13:06.018 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_AUDIO_STATUS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:06.266 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_ENDED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:06.489 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: 164, parameters: b'\n\x0f', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:06.664 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_STARTED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:06.927 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_ENDED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:07.905 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_PHYSICAL_ADDRESS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:08.197 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: PLAYBACKDEVICE1, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_OSD_NAME, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:08.518 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: PLAYBACKDEVICE1, destination: BROADCAST, ack: False, opcode: REPORT_PHYSICAL_ADDRESS, parameters: b' \x00\x04', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:08.585 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_OSD_NAME, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:09.320 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_DEVICE_VENDOR_ID, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:09.678 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: PLAYBACKDEVICE1, destination: BROADCAST, ack: False, opcode: DEVICE_VENDOR_ID, parameters: b'\x00\x1a\x11', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:09.745 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_DEVICE_POWER_STATUS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:10.150 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_DEVICE_POWER_STATUS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:10.300 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REQUEST_ARC_START, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:10.302 | SUCCESS  | __main__:callback:124 - Request ARC Start
+2023-11-07 22:13:10.304 | INFO     | __main__:callback:134 - Request ARC start while not in ffff... responding with.....
+2023-11-07 22:13:10.656 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: 164, parameters: b'\n\x0f', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:10.830 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_STARTED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.028 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_POWER_STATUS, parameters: b'\x00', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.030 | INFO     | __main__:callback:148 - TV Report Power Status: CEC_POWER_STATUS_ON
+2023-11-07 22:13:11.032 | INFO     | __main__:callback:152 - TV Report Power: TV ON or turning ON
+2023-11-07 22:13:11.034 | INFO     | actions:tv_on:11 - TV ON
+2023-11-07 22:13:11.156 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_ENDED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.378 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: 164, parameters: b'\n\x0f', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.552 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_STARTED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:13:11.740 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: REPORT_ARC_ENDED, parameters: b'', opcode_set: True, transmit_timeout: 1000}
+2023-11-07 22:14:10.143 | COMMAND  | __main__:printCommand:84 - COMMAND {initiator: TV, destination: AUDIOSYSTEM, ack: False, opcode: GIVE_DEVICE_POWER_STATUS, parameters: b'', opcode_set: True, transmit_timeout: 1000}
